@@ -72,15 +72,12 @@ local function calc_point(point, prev_point, squad, src_smart, tgt_smart_id, arh
 					point_value = point_value + 1000
 				end
 			else
-				if game_relations.is_factions_enemies(squad_faction, point_faction) then
+				if game_relations.is_factions_enemies(squad_faction, point_faction) and board:is_empty_or_enemy_smart_avail(point, squad_faction) then
 					for k, point_squad in pairs (board.smarts[point_id].squads) do
 						point_value = point_value + point_squad.squad_power
 					end
 					if point.combat_manager:point_under_attack() then
 						point_value = point_value + 100
-					end
-					if not board:is_empty_or_enemy_smart_avail(point, squad_faction) then
-						point_value = point_value + 1000
 					end
 				else
 					point_value = point_value + 1000

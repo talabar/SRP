@@ -7,40 +7,53 @@
 ---------------------------------------------------------------------------------------------------------------------
 --Evaluators
 ----------------------------------------------------------------------------------------------------------------------
---' Возвращает есть ли у нас контакт с другим сталкером
+
 class "evaluator_contact" (property_evaluator)
-function evaluator_contact:__init(name, storage) super (nil, name)
+
+function evaluator_contact:__init(name, storage) super()
 	self.a = storage
 end
+
 function evaluator_contact:evaluate()
-	if self.a.meet_set ~= true then return false end
-	if self.a.meet_only_at_path == true and not db.storage[self.object:id()].move_mgr:arrived_to_first_waypoint() then
+
+	if self.a.meet_set ~= true then
 		return false
 	end
 
-	if db.actor then
-		if not db.actor:alive() then
+	if self.a.meet_only_at_path == true then
+		if self.move_mgr == nil then
+			self.move_mgr = db.storage[self.object:id()].move_mgr
+		end
+		if not self.move_mgr:arrived_to_first_waypoint() then
 			return false
 		end
+	end
 
-		if xr_wounded.is_wounded(self.object) then
-			return false
-		end
-
-		self.a.meet_manager:update()
-
-		if self.mgr == nil then
-			self.mgr = self.object:motivation_action_manager()
-		end
-		if self.mgr:evaluator(stalker_ids.property_enemy):evaluate() then
-			self.object:disable_talk()
-			return false
-		end
-		--printf("eva [%s]", tostring(self.a.meet_manager.state))
-        return tostring(self.a.meet_manager.state) ~= "nil"
-	else
+	if not db.actor then
 		return false
 	end
+
+	if not db.actor:alive() then
+		return false
+	end
+
+	if xr_wounded.is_wounded(self.object) then
+		return false
+	end
+
+	if self.enemy_evaluator == nil then
+		local mgr = self.object:motivation_action_manager()
+		self.enemy_evaluator = mgr:evaluator(stalker_ids.property_enemy)
+	end
+
+	if self.enemy_evaluator:evaluate() then
+		self.object:disable_talk()
+		return false
+	end
+
+	self.a.meet_manager:update()
+
+	return tostring(self.a.meet_manager.state) ~= "nil"
 end
 
 ----------------------------------------------------------------------------------------------------------------------

@@ -4,16 +4,6 @@ end
 
 schemes = {}
 
-function load_scheme(filename, scheme)
-	schemes[scheme] = filename
-	-- nv130308 pre-load schemes for early validation
-	-- this prefetches the logic and reports problems before loading any save
-	if not _G[filename] then
-		dbglog("Scheme file %s.script is not valid!", tostring(filename))
-		get_console():execute("quit")
-	end
-end
-
 ----------------------------------------------------------------------
 dev_debug = false
 ----------------------------------------------------------------------
@@ -34,24 +24,17 @@ function dbglog(fmt, ...)
 	error_log(string.format(fmt, ...))
 end
 
-function dbgmsg(msg)
+function dbgmsg(fmt, ...)
 	local act = db.actor
 	if act then
-		act:give_game_news("Debug message:", msg, "ui_iconsTotal_monster_part", 0, 10000, 1)
+		act:give_game_news("Debug message:", string.format(fmt, ...), "ui_iconsTotal_monster_part", 0, 10000, 1)
 	end
 end
 
-function printf()
-end
-
-function print_table()
-end
-
-function store_table()
-end
-
-function callstack()
-end
+function printf() end
+function print_table() end
+function store_table() end
+function callstack() end
 
 --[[
 
@@ -114,8 +97,11 @@ end
 
 function round(value)
 	local min = math.floor(value)
-	local max = min + 1
-	return value - min > max - value and max or min
+	if value > 0 then
+		return value < min + 0.5 and min or min + 1 -- fails for negative multiples of 0.5
+	else
+		return value > min + 0.5 and min + 1 or min -- fails for positive multiples of 0.5
+	end
 end
 
 function distance_between(obj1, obj2)
@@ -188,15 +174,15 @@ end
 
 function yaw(v1, v2)
 	local sqrt = math.sqrt
-	return math.acos(((v1.x * v2.x) + (v1.z * v2.z )) / (sqrt(v1.x * v1.x + v1.z * v1.z) * sqrt(v2.x * v2.x + v2.z * v2.z)))
+	return math.acos((v1.x * v2.x + v1.z * v2.z) / (sqrt(v1.x * v1.x + v1.z * v1.z) * sqrt(v2.x * v2.x + v2.z * v2.z)))
 end
 
 function yaw_degree(v1, v2)
 	local sqrt = math.sqrt
-	return math.acos(((v1.x * v2.x) + (v1.z * v2.z)) / (sqrt(v1.x * v1.x + v1.z * v1.z) * sqrt(v2.x * v2.x + v2.z * v2.z ))) * 57.2957
+	return math.acos((v1.x * v2.x + v1.z * v2.z) / (sqrt(v1.x * v1.x + v1.z * v1.z) * sqrt(v2.x * v2.x + v2.z * v2.z))) * 57.2957
 end
 
-function yaw_degree3d(v1, v2)
+local function yaw_degree3d(v1, v2)
 	local sqrt = math.sqrt
 	return math.acos((v1.x * v2.x + v1.y * v2.y + v1.z * v2.z) / (sqrt(v1.x * v1.x + v1.y * v1.y + v1.z * v1.z) * sqrt(v2.x * v2.x + v2.y * v2.y + v2.z * v2.z))) * 57.2957
 end
@@ -230,8 +216,6 @@ function switch_online(id)
 		sim:set_switch_offline(id, false)
 	end
 end
-
--------------------------------------------------------------------------------------------
 
 function switch_offline(npc)
 	if npc == nil or npc:alive() == false then return end
@@ -301,33 +285,17 @@ end
 function npc_in_actor_frustrum(npc)
 	local actor_dir = device().cam_dir
 	local npc_dir = npc:position():sub(db.actor:position())
-	local yaw = yaw_degree3d(actor_dir, npc_dir)
-	return yaw < 35
+	return yaw_degree3d(actor_dir, npc_dir) < 35
 end
 
-function on_actor_critical_power()
-end
-
-function on_actor_critical_max_power()
-end
-
-function on_actor_bleeding()
-end
-
-function on_actor_satiety()
-end
-
-function on_actor_radiation()
-end
-
-function on_actor_weapon_jammed()
-end
-
-function on_actor_cant_walk_weight()
-end
-
-function on_actor_psy()
-end
+function on_actor_critical_power() end
+function on_actor_critical_max_power() end
+function on_actor_bleeding() end
+function on_actor_satiety() end
+function on_actor_radiation() end
+function on_actor_weapon_jammed() end
+function on_actor_cant_walk_weight() end
+function on_actor_psy() end
 
 function start_game_callback()
 
@@ -424,10 +392,6 @@ function start_game_callback()
 	release_body_manager.init() -- SRP
 end
 
-function gi(info)
-	db.actor:give_info_portion(info)
-end
-
 ammo_section =
 {
 	["ammo_9x18_fmj"]       = true,
@@ -506,8 +470,7 @@ function set_save_marker(p, mode, check, prefix)
 	end
 end
 
-function vec_to_str()
-end
+function vec_to_str() end
 
 local group = nil
 local group_by_level =

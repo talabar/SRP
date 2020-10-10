@@ -1,8 +1,8 @@
-local object_binder_update = object_binder.update
-
 function bind(obj)
 	obj:bind_object(faction_binder(obj))
 end
+
+--------------------------------------------------------------------------------
 
 class "faction_binder" (object_binder)
 
@@ -13,9 +13,15 @@ function faction_binder:net_spawn(server_object)
 	if not object_binder.net_spawn(self, server_object) then
 		return false
 	end
-	self.faction = _G.sim:object(self.object:id())
+	self.faction = _G.sim:object(server_object.id)
 	return true
 end
+
+function faction_binder:net_destroy() -- missing in vanilla
+	object_binder.net_destroy(self)
+end
+
+local object_binder_update = object_binder.update
 
 function faction_binder:update(delta)
 	object_binder_update(self, delta)

@@ -5,11 +5,11 @@
 artefact_ways_by_id = {}
 parent_zones_by_artefact_id = {}
 
-local object_binder_update = object_binder.update
-
 function bind(obj)
 	obj:bind_object(anomaly_zone_binder(obj))
 end
+
+--------------------------------------------------------------------------------
 
 class "anomaly_zone_binder" (object_binder)
 
@@ -17,26 +17,15 @@ function anomaly_zone_binder:__init(obj) super(obj)
 
 	local get_string       = utils.cfg_get_string
 	local get_number       = utils.cfg_get_number
-
 	local ini              = obj:spawn_ini()
-	local path             = get_string(ini, "anomal_zone", "artefact_ways", nil, true, "", nil)
-	local artefacts        = get_string(ini, "anomal_zone", "artefacts", nil, true, "", nil)
 
-	if path == nil then
-		abort("[bind_anomaly_zone.__init]: There is no field 'artefact_ways' in section [anomal_zone] for obj [%s]", obj:name())
-	end
-
-	if artefacts == nil then
-		abort("[bind_anomaly_zone.__init]: There is no field 'artefacts' in section [anomal_zone] for obj [%s]", obj:name())
-	end
-
-	self.artefact_count    = get_number(ini, "anomal_zone", "artefact_count", nil, false, 1)
-	self.idle_time         = get_number(ini, "anomal_zone", "idle_time", nil, false, 14400) * level.get_time_factor() -- artifacts respawn after 14400 / 60 / 60 = 4 real hours
+	self.artefact_count    = get_number(ini, "anomal_zone", "artefact_count",    nil, false, 1)
+	self.idle_time         = get_number(ini, "anomal_zone", "idle_time",         nil, false, 14400) * level.get_time_factor() -- artifacts respawn after 14400 / 60 / 60 = 4 real hours
 	self.applying_force_xz = get_number(ini, "anomal_zone", "applying_force_xz", nil, false, 200)
-	self.applying_force_y  = get_number(ini, "anomal_zone", "applying_force_y", nil, false, 400)
+	self.applying_force_y  = get_number(ini, "anomal_zone", "applying_force_y",  nil, false, 400)
 
-	self.path_table        = parse_names(path)
-	self.artefacts_table   = parse_names(artefacts)
+	self.path_table        = parse_names(get_string(ini, "anomal_zone", "artefact_ways", nil, true, "", nil))
+	self.artefacts_table   = parse_names(get_string(ini, "anomal_zone", "artefacts",     nil, true, "", nil))
 	self.spawned_count     = 0
 	self.idle_time_start   = nil
 end
@@ -54,6 +43,12 @@ function anomaly_zone_binder:net_spawn(server_object)
 	end
 	return true
 end
+
+function anomaly_zone_binder:net_destroy() -- missing in vanilla
+	object_binder.net_destroy(self)
+end
+
+local object_binder_update = object_binder.update
 
 function anomaly_zone_binder:update(delta)
 	object_binder_update(self, delta)

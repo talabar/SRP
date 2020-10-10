@@ -41,7 +41,7 @@ local object_idle = object.idle
 
 class "evaluator_state_mgr_idle" (property_evaluator)
 
-function evaluator_state_mgr_idle:__init(state_manager) super ()
+function evaluator_state_mgr_idle:__init(state_manager) super()
 	self.st = state_manager
 	self.mgr = state_manager.npc:motivation_action_manager()
 	local planner = state_manager.planner
@@ -91,7 +91,7 @@ end
 
 class "evaluator_state_mgr_idle_alife" (property_evaluator)
 
-function evaluator_state_mgr_idle_alife:__init(state_manager) super ()
+function evaluator_state_mgr_idle_alife:__init(state_manager) super()
 	self.st = state_manager
 	self.mgr = state_manager.npc:motivation_action_manager()
 	self.npc_st = db.storage[state_manager.npc:id()]
@@ -136,7 +136,7 @@ end
 
 class "evaluator_state_mgr_idle_smartcover" (property_evaluator)
 
-function evaluator_state_mgr_idle_smartcover:__init(state_manager) super ()
+function evaluator_state_mgr_idle_smartcover:__init(state_manager) super()
 	self.st = state_manager
 	local planner = state_manager.planner
 	self.movement_eval = planner:evaluator(props.movement)
@@ -158,7 +158,7 @@ end
 
 class "act_state_mgr_to_idle" (action_base)
 
-function act_state_mgr_to_idle:__init(state_manager) super ()
+function act_state_mgr_to_idle:__init(state_manager) super()
 	self.st = state_manager
 end
 
@@ -193,7 +193,7 @@ end
 
 class "eva_state_mgr_end" (property_evaluator)
 
-function eva_state_mgr_end:__init(st) super ()
+function eva_state_mgr_end:__init(st) super()
 	self.st = st
 	self.mgr = st.npc:motivation_action_manager()
 end
@@ -234,7 +234,7 @@ end
 
 class "eva_state_mgr_locked" (property_evaluator)
 
-function eva_state_mgr_locked:__init(st) super ()
+function eva_state_mgr_locked:__init(st) super()
 	self.st = st
 end
 
@@ -252,7 +252,7 @@ end
 
 class "eva_state_mgr_locked_external" (property_evaluator)
 
-function eva_state_mgr_locked_external:__init(st) super ()
+function eva_state_mgr_locked_external:__init(st) super()
 	self.st = st
 end
 
@@ -268,7 +268,7 @@ end
 
 class "act_state_mgr_end" (action_base)
 
-function act_state_mgr_end:__init(st) super ()
+function act_state_mgr_end:__init(st) super()
 	self.st = st
 end
 
@@ -333,7 +333,7 @@ end
 
 class "act_state_mgr_locked" (action_base)
 
-function act_state_mgr_locked:__init() super ()
+function act_state_mgr_locked:__init() super()
 --	self.st = st
 end
 
@@ -425,11 +425,7 @@ function state_manager:set_state(state_name, callback, timeout, target, emerg, s
 		switched = true
 	end
 
-	if new_state.reset == true then
-		self.reset_state = true
-	else
-		self.reset_state = false
-	end
+	self.reset_state = new_state.reset == true
 
 	if switched and emerg ~= nil then
 		if animation_reset_denied[last_state] ~= true then
@@ -493,25 +489,19 @@ end
 
 function get_state(npc)
 	local state_mgr = db.storage[npc:id()].state_mgr
-	if state_mgr then
-		return state_mgr:get_state()
-	end
-	return nil
+	return state_mgr and state_mgr:get_state()
 end
 
 --------------------------------------------------------------------------------
 
 function bind_manager(npc)
 
-	local manager = npc:motivation_action_manager()
-	local state_manager = state_mgr.state_manager(npc)
+	local manager               = npc:motivation_action_manager()
+	local state_manager         = state_mgr.state_manager(npc)
 
-	manager:add_evaluator(prop_state_mgr_idle_combat, evaluator_state_mgr_idle(state_manager))
-	manager:add_evaluator(prop_state_mgr_idle_alife, evaluator_state_mgr_idle_alife(state_manager))
-	manager:add_evaluator(prop_state_mgr_idle_smartcover, evaluator_state_mgr_idle_smartcover(state_manager))
-
-	local wp_prop_state_mgr_idle_combat_true = wp_prop_state_mgr_idle_combat_true
-	local wp_prop_state_mgr_idle_alife_true = wp_prop_state_mgr_idle_alife_true
+	manager:add_evaluator       (prop_state_mgr_idle_combat, evaluator_state_mgr_idle(state_manager))
+	manager:add_evaluator       (prop_state_mgr_idle_alife, evaluator_state_mgr_idle_alife(state_manager))
+	manager:add_evaluator       (prop_state_mgr_idle_smartcover, evaluator_state_mgr_idle_smartcover(state_manager))
 
 	local action                = this.act_state_mgr_to_idle(state_manager)
 	action:add_precondition     (wp_prop_state_mgr_idle_combat_false)

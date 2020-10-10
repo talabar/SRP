@@ -734,7 +734,7 @@ function se_sim_faction:get_war_target_descr()
 	local defend_exist = false
 
 	for k, v in pairs (self.target_smart_value) do
-		if v.no_task ~= true then
+		if v.task_point_type ~= 0 then
 			if v.smart.player_name ~= self.player_name then
 				if v.num > 0 then
 					if capture_exist == false then
