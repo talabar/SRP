@@ -54,7 +54,7 @@ animation_slot          = 8                ; type of the animation that will be 
 
 inv_name          		= st_wpn_ak74u                    ; name in inventory
 inv_name_short       	= st_wpn_ak74u
-inv_weight				= 2.7								; weight in inventory
+inv_weight				= 2.71								; weight in inventory
 inv_grid_width			= 4	 ; position and size of the icon that will be used to display weapon in the inventory menu
 inv_grid_height			= 2	 ; all icons are on the texture ui_icon_equipment.dds,
 inv_grid_x				= 0  ; position and size are in terms of 64x64 squares
@@ -67,21 +67,21 @@ kill_msg_height		= 30
 
 ;-------------------------------------------------------------------------------
 ;params of weapon recoil
-fire_dispersion_base       = 0.9      ;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
+fire_dispersion_base       = 0.9      	;угол (в градусах) базовой дисперсии оружия (оружия зажатого в тисках)
 control_inertion_factor    = 1.1f
 
 ;отдача
-cam_relax_speed         = 5			;скорость возврата в исходное положение
-cam_relax_speed_ai     	= 120.75
-cam_dispersion          = 0.5		;увеличения угла (в градусах) с первым выстрелом
-cam_dispersion_inc      = 0.5	;увеличениe cam_dispersion с каждым выстрелом
-cam_dispersion_frac     = 0.7	    ;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
-cam_max_angle			= 5.0      ;максимальный угол отдачи
-cam_max_angle_horz      = 10.0      ;(degree) maximum shot horizontal degree
-cam_step_angle_horz     = 1.5		;(degree) size of step camera moved in horizontal position while shooting
+cam_relax_speed         = 5				;скорость возврата в исходное положение
+cam_relax_speed_ai     	= 360			; 120.75
+cam_dispersion          = 0.5			;увеличения угла (в градусах) с первым выстрелом
+cam_dispersion_inc      = 0.5			;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac     = 0.7	    	;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle			= 5.0      		;максимальный угол отдачи
+cam_max_angle_horz      = 10.0      	;(degree) maximum shot horizontal degree
+cam_step_angle_horz     = 1.5			;(degree) size of step camera moved in horizontal position while shooting
 
 zoom_cam_relax_speed         = 5	    ; scope & ironsight
-zoom_cam_relax_speed_ai      = 360
+zoom_cam_relax_speed_ai      = 120.75	;360
 zoom_cam_dispersion          = 0.5
 zoom_cam_dispersion_inc      = 0.5
 zoom_cam_dispersion_frac     = 0.7
@@ -158,8 +158,7 @@ light_var_color         = 0.05
 light_var_range         = 0.5
 light_time              = 0.2
 
-ph_mass                 = 4
-;cost                   = 2100
+ph_mass					= 2.71						; 4
 
 ;addons
 scope_status               = 0                     ; 0 - no addon
@@ -173,9 +172,11 @@ scope_zoom_factor       = 50                                                ; fo
 ;scope_name              = wpn_addon_scope       ; section name for the attachable scope
 ;scope_x                      = 47                 ; offset in inventory icon
 ;scope_y                 = 0
+
 silencer_name           = wpn_addon_silencer    ; section name for the attachable silencer
-silencer_x 					= 178							; offset in inventory icon
+silencer_x 				= 157					; offset in inventory icon (178)
 silencer_y 					= -2
+
 ;grenade_launcher_name   = wpn_addon_grenade_launcher; section name for the attachable grenade launcher
 ;grenade_launcher_x      = 126                ; offset in inventory icon
 ;grenade_launcher_y      = 24
@@ -284,9 +285,10 @@ lean_hud_offset_pos		= 0,0,0
 lean_hud_offset_rot		= 0,0,0
 
 ;-----------------------------------------------------------------------------
-; Уникальные
+; Custom
 ;-----------------------------------------------------------------------------
-[wpn_ak74u_m1]:wpn_ak74u	;АК-74у спецназ
+
+[wpn_ak74u_m1]:wpn_ak74u
 $spawn             				= "weapons\uniq\wpn_ak74u_m1"
 description						= enc_weapons1_wpn-ak74u_m1
 inv_name	        			= wpn-ak74u_m1
@@ -296,7 +298,6 @@ condition_shot_dec 				= 0.00003
 inv_grid_x						= 5
 inv_grid_y						= 20
 inv_grid_width					= 5
-
 smoke_particles 				= weapons\generic_shoot_00
 flame_particles					=
 light_disabled					= true
@@ -305,9 +306,10 @@ snd_shoot1					= weapons\w_ak74_shot1
 snd_shoot2					= weapons\w_ak74_shot1
 snd_shoot3					= weapons\w_ak74_shot1
 
-[wpn_ak74u_minigame]:wpn_ak74u    ;new weapon for minigame "Shooting"
+;-------------------------------------------------------------------------------
+
+[wpn_ak74u_minigame]:wpn_ak74u
 ammo_limit      = 100
-;ammo_mag_size   = 10
 ammo_class      = ammo_minigame
 fire_modes      = 1
 $spawn          = "weapons\wpn_ak74u_minigame"
@@ -315,4 +317,4 @@ cost            = 0
 quest_item 		= true
 upgrades                = up_gr_ab_ak74u, up_gr_cd_ak74u, up_gr_ef_ak74u, up_gr_i_ak74u
 installed_upgrades      = up_b_ak74u,up_d_ak74u,up_bd_ak74u,up_f_ak74u
-upgrade_scheme          = upgrade_scheme_u9d
+upgrade_scheme				= upgrade_scheme_u9d

@@ -73,7 +73,6 @@ single_handed			= 0
 slot 					= 2
 animation_slot			= 3
 
-
 inv_name				= st_wpn_bm16
 inv_name_short			= st_wpn_bm16
 inv_weight				= 1.9
@@ -97,7 +96,6 @@ fire_point2             = 0.000000,0.136000,0.390000		;l
 
 flame_particles	= weapons\generic_weapon05
 smoke_particles	= weapons\generic_shoot_00
-rpm_empty_click = 200
 
 ; ttc
 hit_power       = 1.05, 1.05, 1.05, 1.05
@@ -112,6 +110,7 @@ hit_probability_gd_master	= 0.80
 fire_distance       	= 35
 bullet_speed			= 170
 rpm                 	= 1000
+rpm_empty_click = 200
 ; end ttc
 
 PDM_disp_base 			= 1.0
@@ -122,12 +121,10 @@ PDM_disp_crouch_no_acc 		= 1.0
 
 hud                      		= wpn_bm16_hud
 
-
 ;--STRAP PARAMETERS-----------------------------------------------------------------
-;под мишкой
+
 strap_position         			= -0.26,-0.11,0.15
 strap_orientation      			= -15,-9,110
-;на спине
 strap_bone0							= bip01_spine2
 strap_bone1							= bip01_spine1
 
@@ -140,10 +137,10 @@ light_var_color		 			= 0.05
 light_var_range		 			= 0.5
 light_time 		 					= 0.2
 
-ph_mass			 					= 3
+ph_mass					= 1.9						; 3
 
 ;addons
-scope_status						= 0
+scope_status					= 0
 silencer_status					= 0
 grenade_launcher_status			= 0
 
@@ -210,6 +207,7 @@ anm_idle_sprint_2		         = bm16_idle_sprint,bm16_idle
 
 anm_reload_1						= bm16_reload_l
 anm_reload_2						= bm16_reload_lr
+
 anm_shot_1							= bm16_shoot_r
 anm_shot_2							= bm16_shoot_l
 
@@ -223,9 +221,3 @@ aim_hud_offset_rot				=  0.007000,-0.015000,-0.003500
 
 aim_hud_offset_pos_16x9			= -0.079000, 0.062000, 0.075000
 aim_hud_offset_rot_16x9			=  0.007000,-0.002000,-0.050000
-
-gl_hud_offset_pos				= 0,0,0
-gl_hud_offset_rot				= 0,0,0
-
-lean_hud_offset_pos				= 0,0,0
-lean_hud_offset_rot				= 0,0,0
