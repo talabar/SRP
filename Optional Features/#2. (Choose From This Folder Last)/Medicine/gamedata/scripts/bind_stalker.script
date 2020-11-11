@@ -237,8 +237,8 @@ end
 ]]
 ----------------------------------------------------------------------------------------------------------------------
 --Medicine mod
-function actor_binder:on_use_item(obj):
-	use_item.CheckSection(obj.section())
+function actor_binder:on_use_item(obj)
+	use_item.CheckSection(obj:section())
 end
 ----------------------------------------------------------------------------------------------------------------------
 function actor_binder:task_callback(_task, _state)
@@ -342,8 +342,10 @@ function actor_binder:update(delta)
 
 	game_stats.update(delta, actor)
 ]]
+
 	--Medicine mod
 	xr_s.on_actor_update(delta)
+
 	xr_sound_update(0) -- actor ID is hard-coded to 0 in-engine
 --[[
 	if self.st.sleep_relocate_time ~= nil then
