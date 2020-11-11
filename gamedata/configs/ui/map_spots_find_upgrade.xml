@@ -91,14 +91,14 @@
 	<secondary_task_find_upgrade_complex_spot x="0" y="0" width="30" height="27" stretch="0" alignment="c" location_level="5" scale="0" scale_min="2.5" scale_max="5.1">
 		<left_icon x="0" y="0" width="0" height="0" stretch="1"/>
 		<right_icon x="0" y="0" width="0" height="0" stretch="1"/>
-		<top_icon x="5.5" y="4.5" width="19" height="19" stretch="1">
+		<top_icon x="3" y="4" width="19" height="19" stretch="1">
 			<texture r="242" g="231" b="11">ui_pda2_upgrades2</texture>
 		</top_icon>
 		<timer x="0" y="25" width="30" height="10">
 			<text font="letterica18" r="238" g="155" b="223" align="c" stretch="1" vert_align="c"/>
-			<texture></texture>
+			<texture/>
 		</timer>
-		<static_border x="2.5" y="1.5" width="30" height="25" stretch="0" light_anim="ui_slow_blinking_alpha" la_cyclic="1" la_texture="1" la_text="0" la_alpha="1">
+		<static_border x="0" y="1" width="30" height="25" stretch="0" light_anim="ui_slow_blinking_alpha" la_cyclic="1" la_texture="1" la_text="0" la_alpha="1">
 			<texture r="242" g="231" b="11">ui_pda2_stask_last_02a</texture>
 		</static_border>
 	</secondary_task_find_upgrade_complex_spot>
