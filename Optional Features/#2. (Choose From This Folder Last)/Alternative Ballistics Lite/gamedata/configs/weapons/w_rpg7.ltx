@@ -1,15 +1,10 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; RPG7
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [wpn_rpg7]:zero_immunities,weapon_probability,default_weapon_params
-
 GroupControlSection			= spawn_group
 discovery_dependency 		=
-$spawn                  	= "weapons\rpg-7"					; option for Level Editor
+$spawn					= "weapons\rpg-7"	
 $prefetch 		 			= 8
 visual                   	= dynamics\weapons\wpn_rpg7\wpn_rpg7
-scheduled            		= off              ; option for ALife Simulator
+scheduled				= off
 cform                    	= skeleton
 class                    	= WP_RPG7
 min_radius               	= 50
@@ -51,7 +46,7 @@ launch_speed			= 5
 
 inv_name				= st_wpn_rpg7
 inv_name_short			= st_wpn_rpg7
-inv_weight				= 6.3
+inv_weight				= 7						; 6.3
 
 inv_grid_width				= 5
 inv_grid_height				= 1
@@ -93,7 +88,7 @@ orientation             = 0, 0, 0
 shell_point				= 0.0, 0.0, 0.0
 fire_point              = 0.0, 0.162, 0.35
 
-smoke_particles		   	= weapons\generic_weapon02;generic_rpg_shot
+smoke_particles		   	= weapons\generic_weapon02
 
 ; ttc
 ;---------------------------------------------------------------
@@ -102,7 +97,7 @@ hit_impulse				= 100
 hit_type 				= explosion
 
 fire_distance           = 400
-bullet_speed			= 100 ;300			;начальная скорость пули
+bullet_speed			= 100
 rpm                     = 200
 
 
@@ -117,7 +112,6 @@ strap_orientation      			= -15,-189,110				; (3rd person view in degrees)
 strap_bone0				= bip01_spine2
 strap_bone1				= bip01_spine1
 
-
 fragment_speed	 			= 50
 
 explode_duration		 	= 5		;подолжительность взрыва (с)
@@ -128,7 +122,7 @@ light_var_color		 		= 0.05
 light_var_range		 		= 0.5
 light_time 		 		= 0.75
 
-ph_mass			 		= 1
+ph_mass					= 7						; 1
 
 scope_status				= 1
 silencer_status				= 0
@@ -142,26 +136,26 @@ scope_zoom_factor			= 30		;ПСО-1 2X
 snd_draw				= weapons\generic_draw
 snd_holster				= weapons\generic_holster
 snd_shoot				= weapons\n_rpg7_shot
+
 snd_empty				= weapons\generic_empty
 snd_reload				= weapons\rpg7_reload
-snd_explode				= weapons\rpg7_explode; t_rpg7_explosion
+snd_explode				= weapons\rpg7_explode
 
 rocket_class				= wpn_rpg7_missile
 wallmark_section			= explosion_marks
 auto_spawn_ammo				= false
 
-
-
 [wpn_rpg7_hud]:hud_base
+
 attach_place_idx			= 0
 item_visual                   		= dynamics\weapons\wpn_rpg7\wpn_rpg7_hud
 
 fire_point				= -0.020000,0.200500,0.145003
 fire_bone               = wpn_body
 
-
 hands_position						= 0.020500,-0.206999,0.261999
 hands_orientation					= 3.349998,2.599999,-0.050000
+
 hands_position_16x9				= 0.020500,-0.165999,0.209500
 hands_orientation_16x9			= 3.649998,1.050001,-0.050000
 
@@ -204,7 +198,9 @@ kill_msg_width				= 74
 kill_msg_height				= 19
 
 cost					= 200
+
 ;---------------------------------------------------------------
+
 blast					= 5.00
 blast_r					= 10;15
 blast_impulse				= 350
@@ -219,6 +215,7 @@ hit_type_blast				= explosion
 hit_type_frag				= fire_wound
 
 up_throw_factor				= 0.25
+
 ;---------------------------------------------------------------
 
 wm_size                  		= 0.1
@@ -234,12 +231,10 @@ jump_height 				= 0
 
 explode_particles			= explosions\explosion_04
 
-
 ;трассы от осколков
 fragment_speed	     		= 100
 
 explode_duration		 	= 5		;подолжительность взрыва (с)
-
 
 ;звуки
 snd_explode 				= weapons\rpg7_explode
@@ -248,7 +243,7 @@ snd_fly_sound				= weapons\rocket_fly
 ;свойства которые читаются, но не используются (надо убрать)
 inv_name					= "Og-7b"
 inv_name_short				= "Og-7b"
-inv_weight					= .2
+inv_weight					= 0.2
 
 inv_grid_width				= 4
 inv_grid_height				= 1
@@ -259,13 +254,15 @@ kill_msg_x			= 0
 kill_msg_y			= 85
 kill_msg_width		= 73
 kill_msg_height		= 19
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Свойства CustomRocket
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 engine_present				= true		;присутствует ли в ракете двигатель
 engine_work_time			= 3000		;время работы двигателя (в милисекундах)
 engine_impulse				= 300
-engine_impulse_up			= 133,906	;137.34 ;137.34 = 2*9.81*7 - значение этого параметра (который является некой подъемной силой, вопреки названию),
+engine_impulse_up			= 133, 906	;137.34 ;137.34 = 2*9.81*7 - значение этого параметра (который является некой подъемной силой, вопреки названию),
 										;при котором ракета массой 7кг не опускается под дейсвием
 										;гравитации. 2*9.81=19.62 - ускорение свободного падения в мире сталкеров
 										;при меньших значениях ракета будет опускаться, при больших подниматься
@@ -276,4 +273,4 @@ trail_light_range 			= 15.0
 engine_particles 			= weapons\rpg_trail_00
 ;fly_particles	 			= weapons\rpg_trail_01
 
-force_explode_time			= 30000; msec
+force_explode_time			= 30000		; msec

@@ -85,7 +85,7 @@ animation_slot  = 3     ; type of the animation that will be used
 
 inv_name    	= st_wpn_toz34
 inv_name_short 	= st_wpn_toz34
-inv_weight     	= 3.1
+inv_weight				= 3.3						; 3.1
 
 inv_grid_width  = 6
 inv_grid_height	= 1
@@ -140,8 +140,7 @@ light_var_color		 		= 0.05
 light_var_range		 		= 0.5
 light_time 		 			= 0.2
 
-ph_mass			 			= 3
-;cost			 			= 900
+ph_mass					= 3.3						; 3
 
 ;addons
 scope_status				= 0
@@ -149,7 +148,7 @@ silencer_status				= 0
 grenade_launcher_status		= 0
 
 zoom_enabled				= true
-scope_zoom_factor	    	= 55
+scope_zoom_factor			= 75						; 55
 
 ;звуки
 snd_draw						= weapons\generic_draw
@@ -167,6 +166,7 @@ snd_add_cartridge			= weapons\w1300_load		;was gen_grenload
 snd_open_weapon			= weapons\spas12_close
 
 [wpn_toz34_hud]:hud_base
+
 zoom_hide_crosshair				= true
 
 hands_position					= -0.144001,-0.129499,0.039500
@@ -187,6 +187,12 @@ fire_bone                     = wpn_body
 
 attach_place_idx					= 0
 item_visual               		= dynamics\weapons\wpn_toz34\wpn_toz34_hud.ogf
+
+aim_hud_offset_pos				= -0.082200, 0.029500, 0.026000
+aim_hud_offset_rot				= -0.005250,-0.000000, 0.022000
+
+aim_hud_offset_pos_16x9			= -0.071800, 0.030000, 0.050000
+aim_hud_offset_rot_16x9			=  0.012000, 0.001000,-0.020000
 
 anm_show_0                    = toz_draw
 anm_show_1                    = toz_draw
@@ -221,9 +227,3 @@ anm_shot_2				= toz_shoot
 anm_bore_0								= toz_idle_bore
 anm_bore_1								= toz_idle_bore
 anm_bore_2								= toz_idle_bore
-
-aim_hud_offset_pos				= -0.082200, 0.029500, 0.026000
-aim_hud_offset_rot				= -0.005250,-0.000000, 0.022000
-
-aim_hud_offset_pos_16x9			= -0.071800, 0.030000, 0.050000
-aim_hud_offset_rot_16x9			=  0.012000, 0.001000,-0.020000

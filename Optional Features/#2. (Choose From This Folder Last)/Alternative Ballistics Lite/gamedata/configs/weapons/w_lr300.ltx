@@ -51,7 +51,7 @@ single_handed           = 0
 
 inv_name             	= st_wpn_lr300
 inv_name_short          = st_wpn_lr300
-inv_weight              = 2.7
+inv_weight				= 3.27						; 2.7
 
 inv_grid_width			= 5
 inv_grid_height			= 2
@@ -80,7 +80,7 @@ cam_max_angle_horz      	= 10.0	;(degree) maximum shot horizontal degree
 cam_step_angle_horz     	= 1.2	;(degree) size of step camera moved in horizontal position while shooting
 
 zoom_cam_relax_speed        = 5    ; scope & ironsight
-zoom_cam_relax_speed_ai     = 360
+zoom_cam_relax_speed_ai     = 120.75		; 360
 zoom_cam_dispersion         = 0.1
 zoom_cam_dispersion_inc     = 0.1
 zoom_cam_dispersion_frac    = 0.7
@@ -152,8 +152,7 @@ light_var_color         = 0.05
 light_var_range         = 0.1
 light_time              = 0.2
 
-ph_mass                 = 3
-;cost                   = 2100
+ph_mass					= 3.27						; 3
 
 ;addons
 scope_status               = 2                     ; 0 - no addon
@@ -168,9 +167,11 @@ scope_texture				= wpn_crosshair_l85
 scope_name 					= wpn_addon_scope_susat
 scope_x 					= 75
 scope_y 					= -5
-silencer_name              = wpn_addon_silencer    ; section name for the attachable silencer
-silencer_x              = 210                ; offset in inventory icon
+
+silencer_name              	= wpn_addon_silencer    ; section name for the attachable silencer
+silencer_x              	= 200			; 210	; offset in inventory icon
 silencer_y              = 9
+
 grenade_launcher_name      = wpn_addon_grenade_launcher_m203; section name for the attachable grenade launcher
 grenade_launcher_x         = 128                ; offset in inventory icon
 grenade_launcher_y         = 28
@@ -205,7 +206,6 @@ silencer_light_range    = 0.01
 silencer_light_var_color= 0.05
 silencer_light_var_range= 0.5
 silencer_light_time     = 0.2
-
 
 [wpn_lr300_hud]
 zoom_hide_crosshair        = true
@@ -279,12 +279,11 @@ lean_hud_offset_pos				= 0,0,0
 lean_hud_offset_rot				= 0,0,0
 
 ;-----------------------------------------------------------------------------
-; Уникальные
+; Custom
 ;-----------------------------------------------------------------------------
 
 [wpn_lr300_minigame]:wpn_lr300    ;new weapon for minigame "Shooting"
 ammo_limit      = 100
-;ammo_mag_size   = 10
 ammo_class      = ammo_minigame
 fire_modes      = 1
 $spawn          = "weapons\wpn_lr300_minigame"
@@ -294,9 +293,10 @@ upgrades                = up_gr_ab_lr300, up_gr_cd_lr300, up_gr_ef_lr300, up_gr_
 installed_upgrades      = up_b_lr300,up_d_lr300,up_bd_lr300
 upgrade_scheme          = upgrade_scheme_u16a
 
-[wpn_lr300_up2]:wpn_lr300	;LR300 М1
-$spawn          = "weapons\uniq\wpn_lr300_up2"
+;-------------------------------------------------------------------------------
 
+[wpn_lr300_up2]:wpn_lr300
+$spawn					= "weapons\uniq\wpn_lr300_up2"
 upgrades                = up_gr_ab_lr300, up_gr_cd_lr300, up_gr_ef_lr300, up_gr_gh_lr300, up_gr_i_lr300, up_gr_j_lr300
 installed_upgrades      = up_b_lr300, up_d_lr300, up_f_lr300, up_h_lr300, up_i_lr300, up_j_lr300
 upgrade_scheme          = upgrade_scheme_u16a

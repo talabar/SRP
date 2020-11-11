@@ -68,11 +68,11 @@ control_inertion_factor = 1.7f
 ;отдача
 cam_relax_speed         = 5.5   ;скорость возврата в исходное положение
 cam_relax_speed_ai      = 360	;скорость возврата в исходное положение
-cam_dispersion          = 2.5 ;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion          = 2.5 	;увеличения угла (в градусах) с каждым выстрелом
 cam_dispersion_inc		= 2.5	;увеличениe cam_dispersion с каждым выстрелом
 cam_dispersion_frac		= 1.0	;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
-cam_max_angle           = 12.0   ;максимальный угол отдачи
-cam_max_angle_horz		= 3.0	;(degree) maximum shot horizontal degree
+cam_max_angle           = 12.0  ;максимальный угол отдачи
+cam_max_angle_horz		= 5		; 3.0	;(degree) maximum shot horizontal degree
 cam_step_angle_horz     = 1.5 ;(degree) size of step camera moved in horizontal position while shooting
 
 zoom_cam_relax_speed        = 5.5    ; scope & ironsight
@@ -81,7 +81,7 @@ zoom_cam_dispersion         = 1.5
 zoom_cam_dispersion_inc     = 1.5
 zoom_cam_dispersion_frac    = 1.0
 zoom_cam_max_angle          = 10.0
-zoom_cam_max_angle_horz     = 5.0
+zoom_cam_max_angle_horz     = 3			; 5.0
 zoom_cam_step_angle_horz    = 1.5
 
 fire_dispersion_condition_factor = 5	;увеличение дисперсии в процентах при максимальном износе
@@ -148,7 +148,7 @@ light_var_color		 	= 0.05
 light_var_range		 	= 0.5
 light_time 		 		= 0.2
 
-ph_mass			 		= 3
+ph_mass					= 4.4						; 3
 
 ;addons
 scope_status            = 1
@@ -168,15 +168,16 @@ scope_y 				= -2
 snd_draw                = weapons\svu_draw
 snd_holster					= weapons\generic_holster
 snd_shoot               = weapons\n_svu_shot
+
 snd_empty					= weapons\gen_empty
 snd_reload              = weapons\svu_reload
 snd_close					= weapons\generic_close
 
 [wpn_svu_hud]:hud_base
+
 zoom_hide_crosshair		= true
 attach_place_idx		= 0
 item_visual             = dynamics\weapons\wpn_svu\wpn_svu_hud
-
 
 hands_position				= -0.044500,-0.209998,0.273998
 hands_orientation			= 1.800001,-0.600001,0.200002
@@ -200,11 +201,11 @@ aim_hud_offset_rot				= -0.002500,0.020000,0.000000
 aim_hud_offset_pos_16x9				= -0.143500,0.024000,-0.120500
 aim_hud_offset_rot_16x9				= -0.005000,-0.005000,0.000000
 
-gl_hud_offset_pos		= 0,0,0
+gl_hud_offset_pos			= 0,0,0
 gl_hud_offset_rot			= 0,0,0
 
-lean_hud_offset_pos		= 0,0,0
-lean_hud_offset_rot		= 0,0,0
+lean_hud_offset_pos			= 0,0,0
+lean_hud_offset_rot			= 0,0,0
 
 anm_show						= svu_draw
 anm_hide             	= svu_holster
@@ -215,7 +216,3 @@ anm_idle             	= svu_idle
 anm_idle_aim				= svu_idle_aim
 anm_idle_moving 			= svu_idle_moving
 anm_idle_sprint			= svu_idle_moving
-
-;-----------------------------------------------------------------------------
-; Уникальные
-;-----------------------------------------------------------------------------

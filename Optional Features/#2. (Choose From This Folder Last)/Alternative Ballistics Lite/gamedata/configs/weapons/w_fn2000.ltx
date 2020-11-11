@@ -52,7 +52,7 @@ animation_slot        	= 2     ; type of the animation that will be used
 
 inv_name             	= st_wpn_fn2000
 inv_name_short         	= st_wpn_fn2000
-inv_weight              = 4.6
+inv_weight              = 3.6	; 4.6
 
 inv_grid_width          = 4
 inv_grid_height         = 2
@@ -70,17 +70,17 @@ fire_dispersion_base       = 0.6    ;угол (в градусах) базовой дисперсии оружия 
 control_inertion_factor    = 1.2f
 
 ;отдача
-cam_relax_speed         = 5    		;скорость возврата в исходное положение
-cam_relax_speed_ai     	= 120.75
-cam_dispersion          = 0.5 		;увеличения угла (в градусах) с каждым выстрелом
-cam_dispersion_inc      = 0.5 		;увеличениe cam_dispersion с каждым выстрелом
-cam_dispersion_frac     = 0.7 		;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
-cam_max_angle           = 10		;максимальный угол отдачи
-cam_max_angle_horz      = 10.0      ;(degree) maximum shot horizontal degree
-cam_step_angle_horz     = 1.0 		;(degree) size of step camera moved in horizontal position while shooting
+cam_relax_speed         = 5    			;скорость возврата в исходное положение
+cam_relax_speed_ai     	= 360			; 120.75
+cam_dispersion          = 0.5 			;увеличения угла (в градусах) с каждым выстрелом
+cam_dispersion_inc      = 0.5 			;увеличениe cam_dispersion с каждым выстрелом
+cam_dispersion_frac     = 0.7 			;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
+cam_max_angle           = 10			;максимальный угол отдачи
+cam_max_angle_horz      = 10.0      	;(degree) maximum shot horizontal degree
+cam_step_angle_horz     = 1.0 			;(degree) size of step camera moved in horizontal position while shooting
 
-zoom_cam_relax_speed         = 5     ; scope & ironsight
-zoom_cam_relax_speed_ai      = 360
+zoom_cam_relax_speed         = 5     	; scope & ironsight
+zoom_cam_relax_speed_ai      = 120.75	; 360
 zoom_cam_dispersion          = 0.5
 zoom_cam_dispersion_inc      = 0.5
 zoom_cam_dispersion_frac     = 0.7
@@ -89,7 +89,7 @@ zoom_cam_max_angle_horz      = 5.0
 zoom_cam_step_angle_horz     = 0.7
 
 fire_dispersion_condition_factor = 5        ;увеличение дисперсии в процентах при максимальном износе
-misfire_probability     = 0.005  ;вероятность осечки при максимальном износе
+misfire_probability     = 0.007				; 0.005  ;вероятность осечки при максимальном износе
 misfire_condition_k     = 0.05
 condition_shot_dec      = 0.0002 ;увеличение износа при каждом выстреле
 ;-------------------------------------------------------------------------------
@@ -140,7 +140,6 @@ hud                      = wpn_fn2000_hud
 
 ;--STRAP PARAMETERS-----------------------------------------------------------------
 strap_position          = -0.15,-0.35,0.27         ; position (offset) and orientation of the weapon when it is strapped
-strap_orientation       = -10,-3,10             ; (3rd person view in degrees))
 strap_orientation       = -10,-5,10					; (3rd person view in degrees)
 strap_bone0             = bip01_spine2
 strap_bone1             = bip01_spine1
@@ -155,8 +154,7 @@ light_var_color         = 0.05
 light_var_range         = 0.1
 light_time              = 0.2
 
-
-ph_mass                 = 4
+ph_mass					= 3.6						; 4
 
 ;addons
 scope_status            = 1
@@ -177,8 +175,8 @@ scope_name              = wpn_addon_scope_susat
 scope_x                 = 63
 scope_y                 = -1
 silencer_name           = wpn_addon_silencer
-silencer_x              = 169
-silencer_y              = 13
+silencer_x              = 155			; 169
+silencer_y              = 12			; 13
 grenade_launcher_name   = wpn_addon_grenade_launcher
 grenade_launcher_x      = 95
 grenade_launcher_y      = 25
@@ -212,7 +210,6 @@ silencer_light_var_color= 0.05
 silencer_light_var_range= 0.5
 silencer_light_time     = 0.2
 
-
 [wpn_fn2000_hud]:hud_base
 zoom_hide_crosshair	= true
 attach_place_idx	= 0
@@ -229,11 +226,9 @@ hands_orientation_16x9			= 2.149999,0.250000,1.399999
 item_position					= 0.005280,0.016463,-0.003394
 item_orientation				= -16.844534,-2.475593,361.820557
 
-
 shell_point					= 0.037,0.063,0.118
 shell_dir               = 0.0, 1.0, 0.0
 shell_bone					= wpn_body
-
 
 fire_point		= 0,0.054,0.358
 fire_bone      	      = wpn_body
@@ -277,14 +272,14 @@ anm_bore_g					= fn_2000_idle_bore_gl
 aim_hud_offset_pos				= -0.112000, 0.029500,-0.318000
 aim_hud_offset_rot				=  0.010000, 0.002500,-0.010000
 
-gl_hud_offset_pos				= -0.069500,-0.089400, 0.000000
-gl_hud_offset_rot				= -0.162500, 0.000000, 0.000000
-
-lean_hud_offset_pos				= 0,0,0
-lean_hud_offset_rot				= 0,0,0
-
 aim_hud_offset_pos_16x9			= -0.112000, 0.019500,-0.301800
 aim_hud_offset_rot_16x9			=  0.010000, 0.002500,-0.010000
 
+gl_hud_offset_pos				= -0.069500,-0.089400, 0.000000
+gl_hud_offset_rot				= -0.162500, 0.000000, 0.000000
+
 gl_hud_offset_pos_16x9			= -0.125000,-0.085500, 0.000000
 gl_hud_offset_rot_16x9			= -0.170000, 0.030000, 0.000000
+
+lean_hud_offset_pos			= 0, 0, 0
+lean_hud_offset_rot			= 0, 0, 0

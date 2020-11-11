@@ -52,7 +52,7 @@ animation_slot          = 2                ; type of the animation that will be 
 
 inv_name          		= st_wpn_l85
 inv_name_short       	= st_wpn_l85
-inv_weight           	= 5
+inv_weight				= 4.13						; 5
 
 inv_grid_width          = 5
 inv_grid_height         = 2
@@ -80,7 +80,7 @@ cam_max_angle_horz      = 7.0      ;(degree) maximum shot horizontal degree
 cam_step_angle_horz     = 2.0    ;(degree) size of step camera moved in horizontal position while shooting
 
 zoom_cam_relax_speed         = 5     ; scope & ironsight
-zoom_cam_relax_speed_ai      = 360
+zoom_cam_relax_speed_ai      = 120.75		; 360
 zoom_cam_dispersion          = 0.3
 zoom_cam_dispersion_inc      = 0.3
 zoom_cam_dispersion_frac     = 0.7
@@ -153,8 +153,7 @@ light_var_color         = 0.05
 light_var_range         = 0.5
 light_time              = 0.2
 
-ph_mass                 = 5
-;cost                   = 2100
+ph_mass					= 4.13						; 5
 
 ;addons
 scope_status            = 1
@@ -173,6 +172,7 @@ scope_y 						= -2
 silencer_name  				= wpn_addon_silencer
 silencer_x 					= 196
 silencer_y 					= 11
+
 grenade_launcher_name 	= wpn_addon_grenade_launcher_m203
 grenade_launcher_x 		= 128
 grenade_launcher_y 		= 28
@@ -207,14 +207,15 @@ silencer_light_var_color= 0.05
 silencer_light_var_range= 0.5
 silencer_light_time     = 0.2
 
-
 [wpn_l85_hud]:hud_base
+
 zoom_hide_crosshair		= true
 attach_place_idx			= 0
 item_visual					= dynamics\weapons\wpn_l85\wpn_l85_hud.ogf
 
 hands_position				= -0.076000,-0.167000,0.237499
 hands_orientation			= -2.449999,2.899998,-3.149999
+
 hands_position_16x9				= -0.080000,-0.176500,0.244999
 hands_orientation_16x9			= -3.099998,3.949998,-4.449999
 
@@ -241,7 +242,7 @@ anm_idle_aim           	= l85_idle_aim
 
 anm_switch              = l85_switch_off
 anm_switch_g            = l85_switch_on
-anm_bore						= l85_idle_bore
+anm_bore				= l85_idle_bore
 
 anm_hide_w_gl           = l85_holster_w_gl
 anm_show_w_gl           = l85_draw_w_gl
@@ -264,24 +265,14 @@ anm_idle_moving_g			= l85_idle_moving_grenade
 anm_bore_g					= l85_idle_bore_grenade
 
 
-aim_hud_offset_pos		= -0.102000,0.019500,-0.148000
-aim_hud_offset_rot		= 0.010000,0.002500,-0.010000
+aim_hud_offset_pos		= -0.102000, 0.019500, -0.148000
+aim_hud_offset_rot		= 0.010000, 0.002500, -0.010000
 
-aim_hud_offset_pos_16x9		= -0.092500,0.019000,-0.126500
-aim_hud_offset_rot_16x9		= 0.015000,0.010000,-0.067500
+aim_hud_offset_pos_16x9		= -0.092500, 0.019000, -0.126500
+aim_hud_offset_rot_16x9		= 0.015000, 0.010000, -0.067500
 
+gl_hud_offset_pos			= 0, 0, 0			;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot			= 0, 0, 0			;-0.145000,0.000000,0.000000
 
-gl_hud_offset_pos			= 0,0,0;-0.053000,-0.059000,0.000000
-gl_hud_offset_rot			= 0,0,0;-0.145000,0.000000,0.000000
-
-gl_hud_offset_pos_16x9			= 0,0,0;-0.053000,-0.059000,0.000000
-gl_hud_offset_rot_16x9			= 0,0,0;-0.145000,0.000000,0.000000
-
-lean_hud_offset_pos		= 0,0,0
-lean_hud_offset_rot		= 0,0,0
-
-
-;-----------------------------------------------------------------------------
-; ”никальные
-;-----------------------------------------------------------------------------
-
+gl_hud_offset_pos_16x9			= 0, 0, 0		;-0.053000,-0.059000,0.000000
+gl_hud_offset_rot_16x9			= 0, 0, 0		;-0.145000,0.000000,0.000000

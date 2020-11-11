@@ -49,7 +49,7 @@ animation_slot          = 2                ; type of the animation that will be 
 
 inv_name				= st_wpn_svd
 inv_name_short			= st_wpn_svd
-inv_weight				= 4.9
+inv_weight				= 4.3						; 4.9
 
 inv_grid_width			= 6
 inv_grid_height			= 2
@@ -73,7 +73,7 @@ cam_dispersion          = 2.5	;увеличения угла (в градусах) с каждым выстрелом
 cam_dispersion_inc		= 2.5	;увеличениe cam_dispersion с каждым выстрелом
 cam_dispersion_frac		= 1.0	;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
 cam_max_angle			= 15.0	;максимальный угол отдачи
-cam_max_angle_horz		= 3.0	;(degree) maximum shot horizontal degree
+cam_max_angle_horz		= 5		; 3.0	;(degree) maximum shot horizontal degree
 cam_step_angle_horz		= 0.25	;(degree) size of step camera moved in horizontal position while shooting
 
 zoom_cam_relax_speed        = 4.5    ; scope & ironsight
@@ -82,13 +82,13 @@ zoom_cam_dispersion         = 1.8
 zoom_cam_dispersion_inc     = 1.8
 zoom_cam_dispersion_frac    = 1.0
 zoom_cam_max_angle          = 10.0
-zoom_cam_max_angle_horz     = 5.0
+zoom_cam_max_angle_horz     = 3		; 5.0
 zoom_cam_step_angle_horz    = 0.25
 
 fire_dispersion_condition_factor = 5	;увеличение дисперсии в процентах при максимальном износе
-misfire_probability 		= 0.005 ;вероятность осечки при максимальном износе
-misfire_condition_k		= 0.05
-condition_shot_dec 		= 0.0002 ;увеличение износа при каждом выстреле
+misfire_probability 			= 0.005 ;вероятность осечки при максимальном износе
+misfire_condition_k				= 0.05
+condition_shot_dec 				= 0.0002 ;увеличение износа при каждом выстреле
 ;-------------------------------------------------------------------------------
 
 position                = -0.026, -0.077, 0.00
@@ -149,7 +149,7 @@ light_var_color		 	= 0.05
 light_var_range		 	= 0.5
 light_time 		 			= 0.2
 
-ph_mass			 			= 3
+ph_mass					= 4.3						; 3
 
 ;addons
 scope_status				= 1; 2 ;1
@@ -158,7 +158,7 @@ grenade_launcher_status		= 0
 
 zoom_enabled				= true
 zoom_rotate_time			= 0.25
-scope_zoom_factor			= 10; 67.5; 10 ;15		;ПСО-1 4X
+scope_zoom_factor			= 10		;ПСО-1 4X
 
 scope_texture				= wpn_crosshair
 scope_name 					= wpn_addon_scope
@@ -174,19 +174,16 @@ snd_reload					= weapons\svd_reload
 snd_close					= weapons\generic_close
 
 [wpn_svd_hud]:hud_base
+
 zoom_hide_crosshair		= true
 attach_place_idx			= 0
 item_visual					= dynamics\weapons\wpn_svd\wpn_svd_hud
-
 
 hands_position				= -0.063500,-0.150999,0.099000
 hands_orientation			= -0.049999,0.750000,1.550001
 
 hands_position_16x9				= -0.058500,-0.165999,0.045000
 hands_orientation_16x9			= 0.650000,1.200000,0.800001
-
-;hands_position_16x9				= -0.045500,-0.161499,-0.026500
-;hands_orientation_16x9			= 3.299998,4.249998,0.800001
 
 item_position				= 0,0,0
 item_orientation			= 0,0,0
@@ -219,10 +216,3 @@ anm_idle             	= svd_idle
 anm_idle_aim				= svd_idle_aim
 anm_idle_moving 			= svd_idle_moving
 anm_idle_sprint			= svd_idle_moving
-
-;-----------------------------------------------------------------------------
-; Уникальные
-;-----------------------------------------------------------------------------
-
-
-

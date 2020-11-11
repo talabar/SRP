@@ -49,7 +49,7 @@ inv_name				= st_wpn_fort
 inv_name_short			= st_wpn_fort
 inv_weight				= 0.83
 
-inv_grid_width			= 1
+inv_grid_width			= 2				; 1
 inv_grid_height			= 1
 inv_grid_x				= 10
 inv_grid_y				= 8
@@ -139,8 +139,7 @@ light_var_color		 		= 0.05
 light_var_range		 		= 0.5
 light_time 		 				= 0.2
 
-ph_mass			 				= 1
-;cost			 					= 350
+ph_mass					= 0.83						; 1
 
 ;addons
 scope_status					= 0
@@ -164,8 +163,8 @@ snd_close						= weapons\generic_close
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 silencer_name  				= wpn_addon_silencer		; section name for the attachable silencer
-silencer_x 						= 36						; offset in inventory icon
-silencer_y 						= -17
+silencer_x 						= 49					; 36		; offset in inventory icon
+silencer_y 						= -15					; -17
 
 ;params when silencer is attached
 ;similar to corresponding params without prefix silencer_
@@ -180,19 +179,14 @@ silencer_light_var_range	= 0.5
 silencer_light_time 			= 0.2
 
 [wpn_fort_hud]:hud_base
-zoom_hide_crosshair			= false
 
+zoom_hide_crosshair			= true
 
 hands_position				= -0.021000,-0.160000,0.002500
 hands_orientation			= -0.500000,1.000000,1.149999
+
 hands_position_16x9				= 0.033000,-0.189500,0.039000
 hands_orientation_16x9			= 2.349998,2.749999,2.849998
-
-
-;hands_position				= -0.021000,-0.160000,0.002500
-;hands_orientation			= -0.500000,1.000000,-2.000000
-;hands_position_16x9				= 0.009000,-0.170500,0.039000
-;hands_orientation_16x9			= 0.900000,1.649999,1.699999
 
 item_position					= 0.000746,-0.000321,0.003479
 item_orientation				= 1.239378,-0.134046,-2.052052
@@ -206,10 +200,6 @@ shell_bone              	= wpn_body
 fire_point			= 0,0.04,0.149
 fire_bone               	= wpn_body
 
-;-delme begin
-anm_empty             	= walter99_idle, walter99_opened
-anm_close				= walter99_holster
-;-delme end
 anm_show					= fort_draw
 anm_show_empty				= fort_draw, fort_opened
 
@@ -250,13 +240,11 @@ aim_hud_offset_pos_16x9				= -0.108000,0.066500,0.000000
 aim_hud_offset_rot_16x9				= 0.035000,0.040000,0.010000
 
 ;-----------------------------------------------------------------------------
-; ”никальные
+; Custom
 ;-----------------------------------------------------------------------------
 
 [wpn_fort_up]:wpn_fort
-$spawn                   	= "weapons\fort_up"		; option for Level Editor
-
-;-----------------------------------------------------------------------------
+$spawn					= "weapons\fort_up"
 upgrades                = up_gr_ab_fort, up_gr_cd_fort, up_gr_e_fort, up_gr_f_fort, up_gr_g_fort, up_gr_h_fort
 installed_upgrades      = up_a_fort, up_c_fort, up_e_fort, up_h_fort
 upgrade_scheme          = upgrade_scheme_u10a

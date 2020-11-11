@@ -31,7 +31,7 @@ tri_state_reload	= on
 cost                = 1750
 weapon_class		= shotgun
 
-fire_modes           = 1, -1
+fire_modes           = 1			; , -1
 
 ammo_limit		 	= 60
 ammo_current		= 10
@@ -68,7 +68,7 @@ zoom_cam_step_angle_horz	= 5.0
 fire_dispersion_condition_factor = 10	;увеличение дисперсии в процентах при максимальном износе
 misfire_probability 		= 0.0	    ;вероятность осечки при максимальном износе
 misfire_condition_k			= 0.0
-condition_shot_dec         = 0.0003 ;увеличение износа при каждом выстреле
+condition_shot_dec         	= 0.0003 ;увеличение износа при каждом выстреле
 ;-------------------------------------------------------------------------------
 
 position                   = -0.024, -0.081, 0.
@@ -86,7 +86,7 @@ animation_slot		= 9		; type of the animation that will be used
 
 inv_name            = st_wpn_spas12
 inv_name_short      = st_wpn_spas12
-inv_weight          = 4.4
+inv_weight				= 4.36						; 4.4
 
 inv_grid_width		= 5
 inv_grid_height		= 1
@@ -119,7 +119,7 @@ hit_probability_gd_stalker = 0.80
 hit_probability_gd_veteran = 0.80
 hit_probability_gd_master  = 0.80
 
-fire_distance  = 50 ;1000
+fire_distance  = 50
 bullet_speed   = 220 ;начальная скорость пули
 rpm            = 70
 ; end ttc
@@ -142,8 +142,7 @@ light_var_color		 		= 0.05
 light_var_range		 		= 0.5
 light_time 		 			= 0.2
 
-ph_mass			 			= 3
-;cost			 			= 900
+ph_mass					= 4.36						; 3
 
 ;addons
 scope_status				= 0
@@ -201,14 +200,7 @@ anm_idle_aim				= spas12_idle_aim
 anm_idle_moving			= spas12_idle_moving
 anm_idle_sprint			= spas12_idle_sprint
 anm_bore						= spas12_idle_bore
-
 anm_shots					= spas12_shoot
-
 anm_open						= spas12_reload_start
 anm_add_cartridge			= spas12_reload
 anm_close					= spas12_reload_end
-
-;-----------------------------------------------------------------------------
-; Уникальные
-;-----------------------------------------------------------------------------
-

@@ -51,7 +51,7 @@ slot              = 2                ; // secondary
 animation_slot    = 8                ; type of the animation that will be used
 inv_name          = st_wpn_mp5               ; name in inventory
 inv_name_short    = st_wpn_mp5
-inv_weight        = 2.5
+inv_weight				= 2.88
 
 inv_grid_width    = 3
 inv_grid_height   = 1
@@ -70,7 +70,7 @@ control_inertion_factor = 1.2f
 
 ;отдача
 cam_relax_speed      = 5		;скорость возврата в исходное положение
-cam_relax_speed_ai   = 120.75
+cam_relax_speed_ai   = 360		; 120.75
 cam_dispersion       = 0.2		;увеличения угла (в градусах) с каждым выстрелом
 cam_dispersion_inc   = 0.5		;увеличениe cam_dispersion с каждым выстрелом
 cam_dispersion_frac  = 0.7		;ствол будет подыматься на cam_dispersion*cam_dispersion_frac +- cam_dispersion*(1-cam_dispersion_frac)
@@ -105,7 +105,6 @@ grenade_flame_particles = weapons\generic_weapon01
 
 shell_point          = 0.0, 0.188, 0.082
 shell_dir            = 0.0, 1.0, 0.0
-
 shell_particles         = weapons\generic_shells
 
 PDM_disp_base           = 1.0
@@ -152,7 +151,7 @@ light_var_color         = 0.05
 light_var_range         = 0.5
 light_time              = 0.2
 
-ph_mass                 = 3
+ph_mass					= 2.88						; 3
 
 ;addons
 scope_status            = 0                   ; 0 - no addon
@@ -166,9 +165,11 @@ scope_zoom_factor       = 50                                                ; fo
 scope_name              = wpn_addon_scope       ; section name for the attachable scope
 scope_x              	= 47                 ; offset in inventory icon
 scope_y                 = 0
+
 silencer_name           = wpn_addon_silencer    ; section name for the attachable silencer
-silencer_x              = 130 ;218                ; offset in inventory icon
-silencer_y              = -13
+silencer_x              = 107		; 130       ; offset in inventory icon
+silencer_y              = -15		; -13
+
 grenade_launcher_name   = wpn_addon_grenade_launcher; section name for the attachable grenade launcher
 grenade_launcher_x      = 126                ; offset in inventory icon
 grenade_launcher_y      = 24
@@ -205,14 +206,15 @@ silencer_light_var_color= 0.05
 silencer_light_var_range= 0.5
 silencer_light_time     = 0.2
 
-
 [wpn_mp5_hud]
+
 zoom_hide_crosshair     = true
 attach_place_idx        = 0
 item_visual             = dynamics\weapons\wpn_mp5\wpn_mp5_hud.ogf
 
 hands_position					= -0.106500,-0.162000,0.113001
 hands_orientation				= -6.700007,-0.800001,-5.400002
+
 hands_position_16x9				= -0.100500,-0.191500,0.135500
 hands_orientation_16x9			= -3.999999,3.199998,-6.000006
 
@@ -238,9 +240,8 @@ anm_reload              = mp5_reload
 anm_idle_aim            = mp5_idle_aim
 anm_bore                = mp5_idle_bore
 
-;anm_switch              = mp5_switch_off ;mp5_switch_off
-;anm_switch_g            = mp5_switch_on ;mp5_switch_on
-
+;anm_switch              = mp5_switch_off
+;anm_switch_g            = mp5_switch_on
 
 ;anm_hide_w_gl           = mp5_holster_w_gl
 ;anm_show_w_gl           = mp5_draw_w_gl
@@ -262,7 +263,6 @@ anm_bore                = mp5_idle_bore
 ;anm_idle_moving_g                        = mp5_idle_moving_w_gl;mp5_idle_moving_grenade
 ;anm_bore_g                                        = mp5_idle_bore_grenade
 
-
 aim_hud_offset_pos				= -0.080600, 0.002750,-0.018000
 aim_hud_offset_rot				= -0.036000,-0.032200, 0.010000
 
@@ -279,12 +279,11 @@ lean_hud_offset_pos				= 0,0,0
 lean_hud_offset_rot				= 0,0,0
 
 ;-----------------------------------------------------------------------------
-; Уникальные
+; Custom
 ;-----------------------------------------------------------------------------
 
-[wpn_mp5_minigame]:wpn_mp5    ;new weapon for minigame "Shooting"
+[wpn_mp5_minigame]:wpn_mp5
 ammo_limit      = 100
-;ammo_mag_size   = 10
 ammo_class      = ammo_minigame
 fire_modes      = 1
 $spawn          = "weapons\wpn_mp5_minigame"
