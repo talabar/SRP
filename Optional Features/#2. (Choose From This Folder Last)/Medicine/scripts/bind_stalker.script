@@ -64,7 +64,7 @@ function actor_binder:reinit()
 --	actor:set_callback(callback.level_border_enter, self.level_border_enter, self)
 --	actor:set_callback(callback.level_border_exit, self.level_border_exit, self)
 	actor:set_callback(callback.take_item_from_box, self.take_item_from_box, self)
---	actor:set_callback(callback.use_object, self.on_use_item, self) -- SRP
+  	actor:set_callback(callback.use_object, self.on_use_item, self) -- SRP
 end
 ----------------------------------------------------------------------------------------------------------------------
 function actor_binder:net_spawn(data)
@@ -131,7 +131,7 @@ function actor_binder:net_destroy()
 --	actor:set_callback(callback.level_border_enter, nil)
 --	actor:set_callback(callback.level_border_exit, nil)
 	actor:set_callback(callback.take_item_from_box, nil)
---	actor:set_callback(callback.use_object, nil) -- SRP
+  	actor:set_callback(callback.use_object, nil) -- SRP
 
 	db.del_actor()
 
@@ -236,6 +236,11 @@ function actor_binder:on_use_item(obj)
 end
 ]]
 ----------------------------------------------------------------------------------------------------------------------
+--Medicine mod
+function actor_binder:on_use_item(obj):
+	use_item.CheckSection(obj.section())
+end
+----------------------------------------------------------------------------------------------------------------------
 function actor_binder:task_callback(_task, _state)
 	if _state ~= task.fail then
 		if _state == task.completed then
@@ -337,6 +342,8 @@ function actor_binder:update(delta)
 
 	game_stats.update(delta, actor)
 ]]
+	--Medicine mod
+	xr_s.on_actor_update(delta)
 	xr_sound_update(0) -- actor ID is hard-coded to 0 in-engine
 --[[
 	if self.st.sleep_relocate_time ~= nil then
