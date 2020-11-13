@@ -228,13 +228,9 @@ function actor_binder:on_item_drop(obj)
 end
 ----------------------------------------------------------------------------------------------------------------------
 function actor_binder:on_use_item(obj)
-	-- TODO: Move sleeping bag check logic to use_item.CheckSection
 	if obj:section() == "sleepingbag" then
 		_G.sim:create("sleepingbag", vector(), 0, 0, 0)
 		level.start_stop_menu(atmsleep.UISleep(), true)
-	else
-		--Medicine mod
-		use_item.CheckSection(obj:section())
 	end
 end
 ----------------------------------------------------------------------------------------------------------------------
@@ -339,10 +335,6 @@ function actor_binder:update(delta)
 
 	game_stats.update(delta, actor)
 ]]
-
-	--Medicine mod
-	xr_s.on_actor_update(delta)
-
 	xr_sound_update(0) -- actor ID is hard-coded to 0 in-engine
 --[[
 	if self.st.sleep_relocate_time ~= nil then
