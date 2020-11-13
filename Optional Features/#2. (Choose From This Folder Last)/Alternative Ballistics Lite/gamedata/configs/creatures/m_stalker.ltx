@@ -76,7 +76,7 @@ time_quant			= 0.005				; how *slowly* the NPC detects the player when the playe
 decrease_value			= 0.1				; how *quickly* the NPC's detection of the player wanes when the player is not visible (bigger number => faster drop)
 velocity_factor			= 0.5				; how much the player's movement speed affects the NPC's detection of the player (bigger number => greater effect)
 luminocity_factor		= 0.5				; how much illumination is needed for the player to become visible to the NPC (bigger number => more illumination needed) (does not work as intended: functionally equivalent to visibility_threshold, i.e. is a coefficient on *overall* visibility, not (just) luminosity)
-transparency_threshold		= 0.701		; 0.4		; how difficult it is for the NPC to see the player through transparent objects, e.g. vegetation (bigger number => more difficult) (value = 0.7 => visible behind bush, value > 0.7 => not visible behind bush)
+transparency_threshold		= 0.4			; how difficult it is for the NPC to see the player through transparent objects, e.g. vegetation (bigger number => more difficult) (value = 0.7 => visible behind bush, value > 0.7 => not visible behind bush)
 
 [stalker_vision_danger]						; alerted state detection settings
 min_view_distance		= 0.7
@@ -92,7 +92,7 @@ transparency_threshold		= 0.4
 [stalker_sound_perceive]
 weapon				= 2
 item				= 0.5
-npc				= 0.37		; 1		; how loud the player's footsteps are to the NPC (0.36 - 0.4 is ideal for vanilla footsteps)
+npc					= 1						; how loud the player's footsteps are to the NPC (0.36 - 0.4 is ideal for vanilla footsteps)
 anomaly				= 0
 world				= 0.2
 
