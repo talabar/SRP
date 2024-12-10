@@ -1194,6 +1194,7 @@
 				<text>esc_trader_meet_22</text>
 				<give_info>esc_bring_habar_complete</give_info>
 				<action>dialogs_escape.transfer_habar</action>
+				<action>dialogs_escape.update_trade_manager</action>
 				<next>222</next>
 			</phrase>
 			<phrase id="44">
@@ -1381,10 +1382,15 @@
 				<text>esc_leader_join_stalker_0</text>
 <!--			<precondition>dialogs.actor_not_in_stalker</precondition> -->
 				<action>dialog_manager.action_disable_phrase_temp</action>
+				<next>1</next>
 				<next>2</next>
 				<next>3</next>
 				<next>4</next>
 				<next>5</next>
+			</phrase>
+			<phrase id="1">
+				<text>esc_leader_join_stalker_2</text>
+				<dont_has_info>esc_take_habar_complete</dont_has_info>
 			</phrase>
 			<phrase id="2">
 				<text>esc_leader_join_stalker_2</text>
@@ -1394,6 +1400,7 @@
 				<text>esc_leader_join_stalker_3</text>
 				<precondition>dialogs.actor_in_dolg</precondition>
 				<has_info>esc_join_stalker_on</has_info>
+				<has_info>esc_take_habar_complete</has_info>
 				<next>33</next>
 				<next>3334</next>
 			</phrase>
@@ -1401,6 +1408,7 @@
 				<text>esc_leader_join_stalker_4</text>
 				<precondition>dialogs.actor_in_freedom</precondition>
 				<has_info>esc_join_stalker_on</has_info>
+				<has_info>esc_take_habar_complete</has_info>
 				<next>33</next>
 				<next>3334</next>
 			</phrase>
@@ -1409,6 +1417,7 @@
 				<precondition>dialogs.actor_not_in_dolg</precondition>
 				<precondition>dialogs.actor_not_in_freedom</precondition>
 				<has_info>esc_join_stalker_on</has_info>
+				<has_info>esc_take_habar_complete</has_info>
 				<next>33</next>
 				<next>3334</next>
 			</phrase>

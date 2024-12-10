@@ -137,4 +137,68 @@
 #include "gameplay\character_criticals_4.xml"
 
 	</specific_character>
+
+	<specific_character id="mil_killer_default_0" team_default = "1">
+
+		<name>GENERATE_NAME_stalker</name>
+		<icon>ui_npc_u_merc_2</icon>
+
+		<class>mil_killer</class>
+		<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+		<snd_config>characters_voice\human_03\stalker\</snd_config>
+
+		<rank>899</rank>
+		<reputation>0</reputation>
+
+		<money min="7000" max="12000" infinitive="0"/>
+
+		<visual>actors\stalker_merc\stalker_merc_2</visual>
+		<supplies>
+			[spawn] \n
+			wpn_sig550 \n
+			ammo_5.56x45_ap \n
+			wpn_sig220 \n
+			ammo_11.43x23_fmj \n
+			grenade_f1 \n
+#include "gameplay\character_items.xml"
+#include "gameplay\character_food.xml"
+#include "gameplay\character_drugs.xml"
+		</supplies>
+
+#include "gameplay\character_dialogs.xml"
+#include "gameplay\character_criticals_4.xml"
+
+	</specific_character>
+
+	<specific_character id="mil_killer_default_1" team_default = "1">
+
+		<name>GENERATE_NAME_stalker</name>
+		<icon>ui_npc_u_merc_2</icon>
+
+		<class>mil_killer</class>
+		<community>killer</community> <terrain_sect>stalker_terrain</terrain_sect>
+		<snd_config>characters_voice\human_03\stalker\</snd_config>
+
+		<rank>899</rank>
+		<reputation>0</reputation>
+
+		<money min="7000" max="12000" infinitive="0"/>
+
+		<visual>actors\stalker_merc\stalker_merc_2</visual>
+		<supplies>
+			[spawn] \n
+			wpn_sig550 \n
+			ammo_5.56x45_ap \n
+			wpn_usp \n
+			ammo_11.43x23_fmj \n
+			grenade_f1 \n
+#include "gameplay\character_items.xml"
+#include "gameplay\character_food.xml"
+#include "gameplay\character_drugs.xml"
+		</supplies>
+
+#include "gameplay\character_dialogs.xml"
+#include "gameplay\character_criticals_4.xml"
+
+	</specific_character>
 </xml>

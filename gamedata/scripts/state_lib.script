@@ -1,17 +1,17 @@
 -- DC170508: Optimization.
 
-local move_walk = move.walk
-local move_run = move.run
+local move_walk     = move.walk
+local move_run      = move.run
 local move_standing = move.standing
-local move_stand = move.stand
-local move_crouch = move.crouch
-local anim_free = anim.free
-local anim_danger = anim.danger
-local look_cur_dir = look.cur_dir
-local sight_dir = CSightParams.eSightTypeAnimationDirection
+local move_stand    = move.stand
+local move_crouch   = move.crouch
+local anim_free     = anim.free
+local anim_danger   = anim.danger
+local look_cur_dir  = look.cur_dir
+local sight_dir     = CSightParams.eSightTypeAnimationDirection
 
-states = {
-
+states =
+{
 	idle =
 	{
 		weapon = nil,
@@ -19,7 +19,7 @@ states = {
 		mental = nil,
 		bodystate = nil,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	walk =
@@ -29,7 +29,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	walk_noweap =
@@ -39,7 +39,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	run =
@@ -49,7 +49,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	sprint =
@@ -59,7 +59,7 @@ states = {
 		mental = anim.panic,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	patrol =
@@ -69,7 +69,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	patrol_fire =
@@ -79,7 +79,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	raid =
@@ -90,7 +90,7 @@ states = {
 		special_danger_move = true,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	raid_fire =
@@ -100,7 +100,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	sneak =
@@ -110,7 +110,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	sneak_run =
@@ -120,7 +120,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	sneak_no_wpn =
@@ -130,7 +130,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	sneak_fire =
@@ -140,7 +140,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	assault =
@@ -150,7 +150,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	assault_fire =
@@ -160,7 +160,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	rush =
@@ -170,7 +170,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	wait =
@@ -180,7 +180,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "idle"
+		animation = "idle",
 	},
 
 	wait_trade =
@@ -190,7 +190,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "idle"
+		animation = "idle",
 	},
 
 	wait_na =
@@ -200,7 +200,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	guard =
@@ -210,7 +210,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "idle"
+		animation = "idle",
 	},
 
 	guard_chasovoy =
@@ -220,7 +220,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "idle_chasovoy"
+		animation = "idle_chasovoy",
 	},
 
 	guard_na =
@@ -230,7 +230,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	guard_fire =
@@ -240,7 +240,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	threat =
@@ -250,7 +250,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	threat_heli =
@@ -260,7 +260,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	threat_na =
@@ -270,7 +270,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	threat_fire =
@@ -280,7 +280,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	threat_sniper_fire =
@@ -290,7 +290,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	hide =
@@ -301,7 +301,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "hide"
+		animation = "hide",
 	},
 
 	hide_na =
@@ -311,7 +311,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	hide_fire =
@@ -321,7 +321,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	hide_sniper_fire =
@@ -331,7 +331,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	caution =
@@ -341,7 +341,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "caution"
+		animation = "caution",
 	},
 
 	choose =
@@ -351,7 +351,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "choosing"
+		animation = "choosing",
 	},
 
 	press =
@@ -361,7 +361,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "press"
+		animation = "press",
 	},
 
 	ward =
@@ -371,7 +371,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "warding"
+		animation = "warding",
 	},
 
 	ward_noweap =
@@ -381,7 +381,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "warding"
+		animation = "warding",
 	},
 
 	search =
@@ -391,7 +391,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "poisk"
+		animation = "poisk",
 	},
 
 	salut =
@@ -401,7 +401,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "salut"
+		animation = "salut",
 	},
 
 	salut_free =
@@ -411,7 +411,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "salut_free"
+		animation = "salut_free",
 	},
 
 	prisoner =
@@ -421,7 +421,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "prisoner"
+		animation = "prisoner",
 	},
 
 	hide_no_wpn =
@@ -431,7 +431,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "hide"
+		animation = "hide",
 	},
 
 	sit =
@@ -441,7 +441,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit",
-		animation = "sit"
+		animation = "sit",
 	},
 
 	sit_knee =
@@ -451,7 +451,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_knee",
-		animation = "sit_knee"
+		animation = "sit_knee",
 	},
 
 	sit_ass =
@@ -461,7 +461,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "sit_ass"
+		animation = "sit_ass",
 	},
 
 	sit_ass_noweap =
@@ -471,7 +471,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "sit_ass"
+		animation = "sit_ass",
 	},
 
 	sleep =
@@ -481,7 +481,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sleep",
-		animation = "sleeping"
+		animation = "sleeping",
 	},
 
 	sleep_noweap =
@@ -491,7 +491,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sleep",
-		animation = "sleeping"
+		animation = "sleeping",
 	},
 
 	sleep_sit =
@@ -501,7 +501,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "sleep_sit"
+		animation = "sleep_sit",
 	},
 
 	eat_bread =
@@ -511,7 +511,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_knee",
-		animation = "eat_bread"
+		animation = "eat_bread",
 	},
 
 	eat_vodka =
@@ -521,7 +521,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "eat_vodka"
+		animation = "eat_vodka",
 	},
 
 	eat_energy =
@@ -531,7 +531,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "eat_energy"
+		animation = "eat_energy",
 	},
 
 	eat_kolbasa =
@@ -541,7 +541,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "eat_kolbasa"
+		animation = "eat_kolbasa",
 	},
 
 	guitar =
@@ -551,7 +551,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_knee",
-		animation = "guitar"
+		animation = "guitar",
 	},
 
 	harmonica =
@@ -561,7 +561,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "sit_ass",
-		animation = "harmonica"
+		animation = "harmonica",
 	},
 
 	hello =
@@ -572,7 +572,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "hello",
-		reset = true
+		reset = true,
 	},
 
 	hello_wpn =
@@ -583,7 +583,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "hello",
-		reset = true
+		reset = true,
 	},
 
 	refuse =
@@ -594,7 +594,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "refuse",
-		reset = true
+		reset = true,
 	},
 
 	claim =
@@ -605,7 +605,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "claim",
-		reset = true
+		reset = true,
 	},
 
 	backoff =
@@ -616,7 +616,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "backoff",
-		reset = true
+		reset = true,
 	},
 
 	backoff2 =
@@ -627,7 +627,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "backoff",
-		reset = true
+		reset = true,
 	},
 
 	punch =
@@ -638,7 +638,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "punch",
-		reset = true
+		reset = true,
 	},
 
 	dynamite =
@@ -648,7 +648,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "dynamite"
+		animation = "dynamite",
 	},
 
 	binocular =
@@ -658,7 +658,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "binocular"
+		animation = "binocular",
 	},
 
 	hide_rac =
@@ -668,7 +668,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "cr_raciya"
+		animation = "cr_raciya",
 	},
 
 	wait_rac =
@@ -678,7 +678,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "raciya"
+		animation = "raciya",
 	},
 
 	wait_rac_noweap =
@@ -688,7 +688,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "raciya"
+		animation = "raciya",
 	},
 
 	wait_rac_stc =
@@ -698,7 +698,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "raciya_stc"
+		animation = "raciya_stc",
 	},
 
 	rac_sakharov =
@@ -708,7 +708,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "rac_sakharov"
+		animation = "rac_sakharov",
 	},
 
 	guard_rac =
@@ -718,7 +718,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "raciya"
+		animation = "raciya",
 	},
 
 	probe_stand =
@@ -728,7 +728,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "probe_stand"
+		animation = "probe_stand",
 	},
 
 	probe_way =
@@ -738,7 +738,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "probe_way"
+		animation = "probe_way",
 	},
 
 	probe_crouch =
@@ -748,7 +748,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "probe_crouch"
+		animation = "probe_crouch",
 	},
 
 	hands_up =
@@ -758,7 +758,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "hands_up"
+		animation = "hands_up",
 	},
 
 	wounded =
@@ -769,7 +769,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "wounded"
+		animation = "wounded",
 	},
 
 	wounded_heavy =
@@ -780,7 +780,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "wounded_heavy_1"
+		animation = "wounded_heavy_1",
 	},
 
 	wounded_heavy_2 =
@@ -791,7 +791,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "wounded_heavy_2"
+		animation = "wounded_heavy_2",
 	},
 
 	wounded_heavy_3 =
@@ -802,7 +802,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "wounded_heavy_3"
+		animation = "wounded_heavy_3",
 	},
 
 	wounded_zombie =
@@ -813,7 +813,7 @@ states = {
 		bodystate = move_crouch,
 		direction = look_cur_dir,
 		animstate = "stand",
-		animation = "wounded_zombie"
+		animation = "wounded_zombie",
 	},
 
 	help_me =
@@ -823,7 +823,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "wounded",
-		animation = "help_me"
+		animation = "help_me",
 	},
 
 	trans_0 =
@@ -833,7 +833,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "trans_0"
+		animation = "trans_0",
 	},
 
 	trans_1 =
@@ -843,7 +843,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "trans_1"
+		animation = "trans_1",
 	},
 
 	trans_zombied =
@@ -853,7 +853,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "trans_zombied"
+		animation = "trans_zombied",
 	},
 
 	bar_fas =
@@ -863,7 +863,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bar_fas"
+		animation = "bar_fas",
 	},
 
 	bar_left =
@@ -873,7 +873,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bar_left"
+		animation = "bar_left",
 	},
 
 	bar_head =
@@ -883,7 +883,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bar_head"
+		animation = "bar_head",
 	},
 
 	bar_sleep =
@@ -893,7 +893,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bar_sleep"
+		animation = "bar_sleep",
 	},
 
 	bar_right =
@@ -903,7 +903,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bar_right"
+		animation = "bar_right",
 	},
 
 	talk_default =
@@ -913,7 +913,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "talk_default"
+		animation = "talk_default",
 	},
 
 	barricade_0 =
@@ -923,7 +923,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_0"
+		animation = "barricade_0",
 	},
 
 	barricade_0_attack =
@@ -933,7 +933,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_0_attack"
+		animation = "barricade_0_attack",
 	},
 
 	barricade_1 =
@@ -943,7 +943,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_1"
+		animation = "barricade_1",
 	},
 
 	barricade_1_attack =
@@ -953,7 +953,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_1_attack"
+		animation = "barricade_1_attack",
 	},
 
 	barricade_2 =
@@ -963,7 +963,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_2"
+		animation = "barricade_2",
 	},
 
 	barricade_2_attack =
@@ -973,7 +973,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_2_attack"
+		animation = "barricade_2_attack",
 	},
 
 	barricade_3 =
@@ -983,7 +983,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_3"
+		animation = "barricade_3",
 	},
 
 	barricade_3_attack =
@@ -993,7 +993,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_3_attack"
+		animation = "barricade_3_attack",
 	},
 
 	barricade_comm_idle =
@@ -1003,7 +1003,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_comm_idle"
+		animation = "barricade_comm_idle",
 	},
 
 	barricade_comm_look =
@@ -1013,7 +1013,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_comm_look"
+		animation = "barricade_comm_look",
 	},
 
 	barricade_comm_talk =
@@ -1023,7 +1023,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "barricade_comm_talk"
+		animation = "barricade_comm_talk",
 	},
 
 	barricade_1_run =
@@ -1033,7 +1033,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "barricade_1_run"
+		animation = "barricade_1_run",
 	},
 
 	bloodsucker_fear =
@@ -1043,7 +1043,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "bloodsucker_fear"
+		animation = "bloodsucker_fear",
 	},
 
 	jump_down_0 =
@@ -1054,7 +1054,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "jump_down_0",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	jump_down_1 =
@@ -1065,7 +1065,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "jump_down_1",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	jump_down_2 =
@@ -1076,7 +1076,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "jump_down_2",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	jump_down_arena_0 =
@@ -1086,7 +1086,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "jump_down_arena_0"
+		animation = "jump_down_arena_0",
 	},
 
 	jump_down_arena_1 =
@@ -1096,7 +1096,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "jump_down_arena_1"
+		animation = "jump_down_arena_1",
 	},
 
 	jump_down_arena_2 =
@@ -1106,7 +1106,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "jump_down_arena_2"
+		animation = "jump_down_arena_2",
 	},
 
 	jump_down_arena_1_crop =
@@ -1117,7 +1117,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "jump_down_arena_1_crop",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	stc_scene_1_stairs_down =
@@ -1127,7 +1127,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_crouch,
 		animstate = "stand",
-		animation = "stc_scene_1_stairs_down"
+		animation = "stc_scene_1_stairs_down",
 	},
 
 	stc_scene_1_run_anim =
@@ -1137,7 +1137,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_1_run_anim"
+		animation = "stc_scene_1_run_anim",
 	},
 
 	stc_scene_2_run_anim =
@@ -1147,7 +1147,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_2_run_anim"
+		animation = "stc_scene_2_run_anim",
 	},
 
 	stc_scene_3_run_anim =
@@ -1157,7 +1157,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_3_run_anim"
+		animation = "stc_scene_3_run_anim",
 	},
 
 	stc_scene_4_run_anim =
@@ -1167,7 +1167,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_4_run_anim"
+		animation = "stc_scene_4_run_anim",
 	},
 
 	stc_scene_5_run_anim =
@@ -1177,7 +1177,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_5_run_anim"
+		animation = "stc_scene_5_run_anim",
 	},
 
 	stc_scene_6_run_anim =
@@ -1187,7 +1187,7 @@ states = {
 		mental = anim_danger,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "stc_scene_6_run_anim"
+		animation = "stc_scene_6_run_anim",
 	},
 
 	stc_scene_7_run_anim =
@@ -1198,7 +1198,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "stc_scene_7_run_anim",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	bloodsucker_search =
@@ -1209,7 +1209,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "bloodsucker_search",
-		reset = true
+		reset = true,
 	},
 
 	bloodsucker_panic =
@@ -1220,7 +1220,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "bloodsucker_panic",
-		reset = true
+		reset = true,
 	},
 
 	mar_intro_2_window_idle =
@@ -1231,7 +1231,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "mar_intro_2_window_idle",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	mar_intro_2_window_walk =
@@ -1241,7 +1241,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_2_window_walk"
+		animation = "mar_intro_2_window_walk",
 	},
 
 	mar_intro_2_talk_idle =
@@ -1252,7 +1252,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "mar_intro_2_talk_idle",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	mar_intro_2_talk_in_circle =
@@ -1262,7 +1262,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_2_talk_in_circle"
+		animation = "mar_intro_2_talk_in_circle",
 	},
 
 	mar_intro_2_talk_out_circle =
@@ -1272,7 +1272,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_2_talk_out_circle"
+		animation = "mar_intro_2_talk_out_circle",
 	},
 
 	mar_intro_2_talk_full_circle =
@@ -1282,7 +1282,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_2_talk_full_circle"
+		animation = "mar_intro_2_talk_full_circle",
 	},
 
 	mar_intro_2_walk_out =
@@ -1293,7 +1293,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "mar_intro_2_walk_out",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	mar_intro_1_actor =
@@ -1303,7 +1303,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_1_actor"
+		animation = "mar_intro_1_actor",
 	},
 
 	mar_intro_1_lebedev =
@@ -1313,7 +1313,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_1_lebedev"
+		animation = "mar_intro_1_lebedev",
 	},
 
 	mar_intro_1_kalancha =
@@ -1323,7 +1323,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "mar_intro_1_kalancha"
+		animation = "mar_intro_1_kalancha",
 	},
 
 	gar_digger_messenger_jump =
@@ -1334,7 +1334,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "gar_digger_messenger_jump",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	yan_professor_walk =
@@ -1344,7 +1344,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = nil
+		animation = nil,
 	},
 
 	yan_professor_wait =
@@ -1354,7 +1354,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "idle"
+		animation = "idle",
 	},
 
 	yan_zabor_0 =
@@ -1365,7 +1365,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "yan_zabor_0",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	yan_zabor_1 =
@@ -1376,7 +1376,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "yan_zabor_1",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	yan_zabor_2 =
@@ -1387,7 +1387,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "yan_zabor_2",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	yan_zabor_3 =
@@ -1398,7 +1398,7 @@ states = {
 		bodystate = move_standing,
 		animstate = "stand",
 		animation = "yan_zabor_3",
-		direction = sight_dir
+		direction = sight_dir,
 	},
 
 	red_forest_bridge =
@@ -1408,7 +1408,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "red_forest_bridge"
+		animation = "red_forest_bridge",
 	},
 
 	electra_damage =
@@ -1418,7 +1418,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "electra_damage"
+		animation = "electra_damage",
 	},
 
 	psy_pain =
@@ -1428,7 +1428,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "psy_armed"
+		animation = "psy_armed",
 	},
 
 	psy_armed =
@@ -1438,7 +1438,7 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "psy_armed"
+		animation = "psy_armed",
 	},
 
 	psy_shoot =
@@ -1449,6 +1449,6 @@ states = {
 		mental = anim_free,
 		bodystate = move_standing,
 		animstate = "stand",
-		animation = "psy_shoot"
-	}
+		animation = "psy_shoot",
+	},
 }
